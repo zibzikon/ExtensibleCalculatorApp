@@ -1,3 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Autofac;
+using ExtensibleCalculatorApp;
 
-Console.WriteLine("Hello, World!");
+var loader = new ApplicationLoader(new PluginsLoader());
+var container = loader.BuildContainer();
+var app = container.Resolve<CalculatorApp>();
+app.Run();
